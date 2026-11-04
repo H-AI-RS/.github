@@ -61,12 +61,12 @@ Built with strict standards: .NET 10, C# 13, `TreatWarningsAsErrors=true`, Centr
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│                        HAIRS ASSURANCE STACK                          │
+│                        HAIRS ASSURANCE STACK                           │
 ├────────────────────────────────────────────────────────────────────────┤
 │  Layer 1: Component Attestation   │ HUMAN_REVIEW.md (Release Scope)    │
 │  Layer 2: File Review Engine      │ sha256-nlf: & Anchored Notes       │
 │  Layer 3: Supply Chain Integrity  │ Workflows, CPM, Scripts & Configs  │
-│  Layer 4: Declaration Assurance   │ Roslyn AST Fingerprints + Gates   │
+│  Layer 4: Declaration Assurance   │ Roslyn AST Fingerprints + Gates    │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -155,44 +155,44 @@ public async Task<TelemetryBatch> DispatchTelemetryAsync(PartitionKey key, Telem
 Every declaration in a covered component exists in exactly one state, evaluated in strict guard order:
 
 ```
-               ┌───────────────────────┐
-               │    NEW (Unannotated)  │ (Blocks Release)
-               └───────────┬───────────┘
-                           │
-                 [ hairs assurance insert ]
-                           │
-                           v
-               ┌───────────────────────┐
-               │      AI_ASSESSED      │ (Fingerprint=TBF, Human=PENDING)
-               └───────────┬───────────┘
-                           │
-                [ hairs assurance generate ]
-                           │
-                           v
-               ┌───────────────────────┐
-               │     HUMAN_PENDING     │ (Fingerprint Sealed, Human=PENDING)
-               └───────────┬───────────┘
-                           │
-                   [ Human signs alias ]
-                           │
-                           v
+                   ┌────────────────────────┐
+                   │    NEW (Unannotated)   │ (Blocks Release)
+                   └───────────┬────────────┘
+                               │
+                   [ hairs assurance insert ]
+                               │
+                               v
+                   ┌───────────────────────┐
+                   │      AI_ASSESSED      │ (Fingerprint=TBF, Human=PENDING)
+                   └───────────┬───────────┘
+                               │
+                  [ hairs assurance generate ]
+                               │
+                               v
+                   ┌───────────────────────┐
+                   │     HUMAN_PENDING     │ (Fingerprint Sealed, Human=PENDING)
+                   └───────────┬───────────┘
+                               │
+                     [ Human signs alias ]
+                               │
+                               v
          ┌───────────────────────────────────────────┐
          │    HUMAN_APPROVED_PENDING_FINGERPRINT     │ (Alias signed, unsealed)
          └─────────────────────┬─────────────────────┘
                                │
-                    [ hairs assurance generate ]
+                  [ hairs assurance generate ]
                                │
                                v
-               ┌───────────────────────┐
-               │       VERIFIED        │ ◄─── READY FOR RELEASE!
-               └───────────┬───────────┘
-                           │
-                 [ Code Logic Modified ]
-                           │
-                           v
-               ┌───────────────────────┐
-               │         STALE         │ (Blocks Release! Seal Mismatch)
-               └───────────────────────┘
+                   ┌───────────────────────┐
+                   │       VERIFIED        │ ◄─── READY FOR RELEASE!
+                   └───────────┬───────────┘
+                               │
+                    [ Code Logic Modified ]
+                               │
+                               v
+                   ┌───────────────────────┐
+                   │         STALE         │ (Blocks Release! Seal Mismatch)
+                   └───────────────────────┘
 ```
 
 ### State Evaluation Rules
