@@ -89,6 +89,9 @@ hairs coverage --root . --markdown coverage.md --json coverage.json
 # Check file freshness against changed files
 hairs check --root . --changed changed-files.txt --fail-on-stale
 
+# Supply Chain Integrity Audit (Workflows, CPM manifests, build scripts)
+hairs supply-chain --root . --fail-on-stale --minimum 100
+
 # Code Assurance Status
 hairs assurance status --root .
 

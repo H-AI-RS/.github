@@ -638,6 +638,7 @@
       </a>
       <ul class="nav-links">
         <li><a href="#why-hairs">Why HAIRS?</a></li>
+        <li><a href="#supply-chain">Supply Chain</a></li>
         <li><a href="#overview">Overview</a></li>
         <li><a href="#architecture">Architecture</a></li>
         <li><a href="#state-machine">State Machine</a></li>
@@ -666,7 +667,7 @@
         <span class="badge badge-emerald">&#x25CF; .NET 10.0</span>
         <span class="badge badge-cyan">&#x25CF; C# 13 / latest</span>
         <span class="badge badge-indigo">&#x25CF; Roslyn AST Scanning</span>
-        <span class="badge badge-emerald">&#x2713; 375 Tests 100% Passing</span>
+        <span class="badge badge-emerald">&#x2713; 392 Tests 100% Passing</span>
         <span class="badge">&#x25CF; Zero Host Coupling</span>
         <span class="badge">&#x25CF; Apache-2.0 License</span>
       </div>
@@ -778,6 +779,89 @@
         <span style="font-family: 'JetBrains Mono', monospace; font-size: 1.12rem; font-weight: 700; color: #34d399; letter-spacing: 0.2px;">
           "AI can accelerate development. Human accountability must remain verifiable."
         </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supply Chain Integrity Section -->
+  <section id="supply-chain">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Supply Chain Assurance</div>
+        <h2 class="section-title">Supply Chain Integrity Review</h2>
+        <p class="section-desc">
+          Beyond application code, HAIRS brings CI/CD workflows, build recipes, CPM package manifests, and configurations under deterministic, content-addressed human verification.
+        </p>
+      </div>
+
+      <!-- Asset Classification Cards -->
+      <div class="grid-2" style="margin-bottom: 32px;">
+        <div class="card" style="border-top: 3px solid #38bdf8;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <div class="card-icon" style="color:#38bdf8; margin-bottom:0; width:40px; height:40px; font-size:1.1rem;">&#x2699;</div>
+            <h3 class="card-title" style="margin-bottom:0; font-size:1.15rem;">Build Pipelines &amp; Workflows</h3>
+          </div>
+          <p class="card-body" style="margin-bottom:12px;">
+            Monitors <code class="mono" style="color:#38bdf8;">.github/workflows/*.yml</code>, packaging scripts (<code class="mono">pack.ps1</code>), shell scripts, and build hooks.
+          </p>
+          <div style="font-size:0.82rem; color:var(--text-dim); background:#020617; padding:8px 12px; border-radius:6px; border:1px solid rgba(51,65,85,0.4);">
+            <strong>Protection:</strong> Prevents silent injections and unauthorized workflow step modification (as seen in SolarWinds &amp; xz Utils).
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #10b981;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <div class="card-icon" style="color:#10b981; margin-bottom:0; width:40px; height:40px; font-size:1.1rem;">&#x29C9;</div>
+            <h3 class="card-title" style="margin-bottom:0; font-size:1.15rem;">Central Package Manifests (CPM)</h3>
+          </div>
+          <p class="card-body" style="margin-bottom:12px;">
+            Audits <code class="mono" style="color:#34d399;">Directory.Packages.props</code>, <code class="mono">Directory.Build.props</code>, lock files, and project references.
+          </p>
+          <div style="font-size:0.82rem; color:var(--text-dim); background:#020617; padding:8px 12px; border-radius:6px; border:1px solid rgba(51,65,85,0.4);">
+            <strong>Protection:</strong> Prevents unreviewed dependency bumps, typo-squatting, and malicious package injection (as seen in event-stream).
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #a855f7;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <div class="card-icon" style="color:#a855f7; margin-bottom:0; width:40px; height:40px; font-size:1.1rem;">&#x2690;</div>
+            <h3 class="card-title" style="margin-bottom:0; font-size:1.15rem;">Assurance &amp; Tool Configurations</h3>
+          </div>
+          <p class="card-body" style="margin-bottom:12px;">
+            Guards <code class="mono" style="color:#c084fc;">hairs.config.json</code>, <code class="mono">.gitattributes</code>, and repository security policies.
+          </p>
+          <div style="font-size:0.82rem; color:var(--text-dim); background:#020617; padding:8px 12px; border-radius:6px; border:1px solid rgba(51,65,85,0.4);">
+            <strong>Protection:</strong> Guarantees review rules and exclusion filters cannot be secretly relaxed or disabled in pull requests.
+          </div>
+        </div>
+
+        <div class="card" style="border-top: 3px solid #f472b6;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <div class="card-icon" style="color:#f472b6; margin-bottom:0; width:40px; height:40px; font-size:1.1rem;">&#x2727;</div>
+            <h3 class="card-title" style="margin-bottom:0; font-size:1.15rem;">Third-Party Code Provenance</h3>
+          </div>
+          <p class="card-body" style="margin-bottom:12px;">
+            Tracks units carrying <code class="mono" style="color:#f472b6;">Origin=ThirdParty</code> or <code class="mono">Origin=Ported</code>, plus vendored code directories.
+          </p>
+          <div style="font-size:0.82rem; color:var(--text-dim); background:#020617; padding:8px 12px; border-radius:6px; border:1px solid rgba(51,65,85,0.4);">
+            <strong>Protection:</strong> Mandates human sign-off on foreign code segments with structural Roslyn AST fingerprint locks.
+          </div>
+        </div>
+      </div>
+
+      <!-- Live CLI Command Demo -->
+      <div class="card" style="background:#020617; border-color:rgba(16,185,129,0.4); padding:24px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+          <div>
+            <span style="font-size:0.78rem; font-weight:700; color:#34d399; text-transform:uppercase; letter-spacing:1px;">CI/CD Gate Command</span>
+            <h3 style="font-size:1.1rem; color:#f8fafc; margin-top:2px;">Enforcing Supply Chain Integrity in Pipelines</h3>
+          </div>
+          <span class="badge badge-emerald">&#x2713; Built-in Command</span>
+        </div>
+        <div class="code-viewer" style="margin-bottom:0; font-size:0.88rem;">
+<span class="code-comment"># Audit supply chain assets and fail if any workflow, build script, or dependency is stale or unreviewed</span>
+hairs supply-chain --root . --fail-on-stale --minimum 100
+        </div>
       </div>
     </div>
   </section>
@@ -1020,28 +1104,39 @@
         </p>
       </div>
 
-      <div class="grid-2">
+      <div class="grid-3">
         <div class="card">
           <h3 class="card-title">File Review &amp; Freshness Checks</h3>
           <p class="card-body" style="margin-bottom:14px;">Evaluate repository review coverage and verify that edited files have fresh reviews:</p>
-          <div class="code-viewer" style="margin-bottom:12px; font-size:0.85rem;">
-<span class="code-comment"># Generate repository coverage report (Markdown + JSON)</span>
-hairs coverage --root . --markdown coverage.md --json coverage.json
+          <div class="code-viewer" style="margin-bottom:12px; font-size:0.83rem;">
+<span class="code-comment"># Generate repository coverage report</span>
+hairs coverage --root . --markdown coverage.md
 
 <span class="code-comment"># Fail if changed files have stale reviews</span>
-hairs check --root . --changed changed-files.txt --fail-on-stale
+hairs check --root . --changed changed.txt --fail-on-stale
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Supply Chain Integrity Audit</h3>
+          <p class="card-body" style="margin-bottom:14px;">Audit workflows, build scripts, CPM manifests, and configurations:</p>
+          <div class="code-viewer" style="margin-bottom:12px; font-size:0.83rem;">
+<span class="code-comment"># Audit supply chain assets (Markdown/JSON)</span>
+hairs supply-chain --root . --markdown sc.md
+
+<span class="code-comment"># Strict supply chain gate (CI exit code 1)</span>
+hairs supply-chain --root . --fail-on-stale --minimum 100
           </div>
         </div>
 
         <div class="card">
           <h3 class="card-title">Declaration Assurance Gates</h3>
           <p class="card-body" style="margin-bottom:14px;">Audit, insert, generate structural fingerprints, and enforce release verification:</p>
-          <div class="code-viewer" style="margin-bottom:12px; font-size:0.85rem;">
-<span class="code-comment"># Discover units &amp; generate fingerprints</span>
-hairs assurance list --root . --json units.json
+          <div class="code-viewer" style="margin-bottom:12px; font-size:0.83rem;">
+<span class="code-comment"># Discover &amp; generate fingerprints</span>
 hairs assurance generate --root .
 
-<span class="code-comment"># Strict release gate (Blocks if any unit is not VERIFIED)</span>
+<span class="code-comment"># Strict release gate (100% VERIFIED)</span>
 hairs assurance check --root . --release
           </div>
         </div>

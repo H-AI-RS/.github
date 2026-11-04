@@ -16,7 +16,7 @@
   <a href="https://learn.microsoft.com/dotnet/csharp/"><img src="https://img.shields.io/badge/C%23-13%20%2F%20latest-239120?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C# 13"></a>
   <a href="https://www.nuget.org/packages/Hairs"><img src="https://img.shields.io/badge/NuGet-Hairs-004880?style=for-the-badge&logo=nuget&logoColor=white" alt="NuGet Hairs"></a>
   <a href="https://www.nuget.org/packages/Hairs.Cli"><img src="https://img.shields.io/badge/Tool-Hairs.Cli-004880?style=for-the-badge&logo=nuget&logoColor=white" alt="NuGet Hairs.Cli"></a>
-  <a href="#test-suite--verification"><img src="https://img.shields.io/badge/Tests-375%20Passed%20(100%25)-success?style=for-the-badge&logo=checkmarx&logoColor=white" alt="375 Tests Passing"></a>
+  <a href="#test-suite--verification"><img src="https://img.shields.io/badge/Tests-392%20Passed%20(100%25)-success?style=for-the-badge&logo=checkmarx&logoColor=white" alt="392 Tests Passing"></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache--2.0-blue?style=for-the-badge" alt="Apache 2.0 License"></a>
 </p>
 
@@ -65,16 +65,43 @@ Built with strict standards: .NET 10, C# 13, `TreatWarningsAsErrors=true`, Centr
 ├────────────────────────────────────────────────────────────────────────┤
 │  Layer 1: Component Attestation   │ HUMAN_REVIEW.md (Release Scope)    │
 │  Layer 2: File Review Engine      │ sha256-nlf: & Anchored Notes       │
-│  Layer 3: Declaration Assurance   │ Roslyn AST Fingerprints + Gates   │
+│  Layer 3: Supply Chain Integrity  │ Workflows, CPM, Scripts & Configs  │
+│  Layer 4: Declaration Assurance   │ Roslyn AST Fingerprints + Gates   │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
+- **Supply Chain Integrity:** Content-addressed audit over CI/CD workflows, build automation, Central Package Management (CPM) dependencies, and tool configurations.
 - **Dual-Layer Assurance:** Audit an entire repository file-by-file and declare granular, method-level security and provenance criteria directly in code.
 - **Roslyn AST Semantic Fingerprints:** Computes a deterministic 6-character hex hash over AST tokens. Whitespace formatting changes do not invalidate reviews; any semantic or logic change immediately triggers the `STALE` state.
 - **Popperian Falsification Criteria:** High- and Critical-risk units mandate a `// Hairs-Falsified-If:` sentence defining observable conditions under which the implementation must be considered invalid.
 - **Zero Host Coupling:** Standalone solution (`Hairs.slnx`), shared core library (`Hairs`), CLI tool (`Hairs.Cli`), and unit test suite (`Hairs.Tests`).
-- **Blazing Fast Test Suite:** 375 tests in xUnit v3 In-Process Runner executing in **under 1 second** with 100% pass rate.
+- **Blazing Fast Test Suite:** 392 tests in xUnit v3 In-Process Runner executing in **~1 second** with 100% pass rate.
 - **CI/CD Enforcement:** Deterministic exit codes and GitHub Actions annotations (`::error::`, `::warning::`) enforcing rules J1 through J11.
+
+---
+
+## Supply Chain Integrity Review
+
+Software supply chain integrity extends verification beyond application source code into the automation, build recipes, and dependencies that produce software releases.
+
+HAIRS audits four distinct supply chain asset categories:
+
+| Category | Monitored Assets | Protection Target |
+|---|---|---|
+| **`BuildPipeline`** | `.github/workflows/*.yml`, `pack.ps1`, `build.sh`, `Dockerfile` | Prevents unauthorized CI/CD modifications and build-script injections (*SolarWinds, xz Utils*). |
+| **`PackageManifest`** | `Directory.Packages.props`, `Directory.Build.props`, `*.csproj`, `packages.lock.json` | Blocks dependency confusion, malicious version bumps, and unverified packages (*event-stream*). |
+| **`Configuration`** | `hairs.config.json`, `.gitattributes`, `nuget.config` | Ensures security gates and verification rules cannot be silently relaxed or bypassed. |
+| **`ThirdPartyCode`** | Vendored code (`vendor/*`, `third_party/*`), `Origin=ThirdParty` | Identifies and audits imported or ported external code with explicit human sign-off. |
+
+### Supply Chain Audit Commands
+
+```powershell
+# Run supply chain integrity audit (Markdown & JSON output)
+hairs supply-chain --root . --markdown supply-chain.md --json supply-chain.json
+
+# Enforce strict supply chain verification gate in CI
+hairs supply-chain --root . --fail-on-stale --minimum 100
+```
 
 ---
 
