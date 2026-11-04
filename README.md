@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/hairs.png">
     <source media="(prefers-color-scheme: light)" srcset="assets/hairs.png">
-    <img alt="HAIRS — Human AI Review System" src="assets/hairs.png" width="100%">
+    <img alt="HAIRS — Human AI Review System" src="assets/hairs.png" width="200" height="200">
   </picture>
 </p>
 
