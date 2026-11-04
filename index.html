@@ -637,6 +637,7 @@
         <span>HAIRS</span>
       </a>
       <ul class="nav-links">
+        <li><a href="#why-hairs">Why HAIRS?</a></li>
         <li><a href="#overview">Overview</a></li>
         <li><a href="#architecture">Architecture</a></li>
         <li><a href="#state-machine">State Machine</a></li>
@@ -702,6 +703,79 @@
       </div>
     </div>
   </header>
+
+  <!-- Why HAIRS Section -->
+  <section id="why-hairs">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Provenance &amp; Review Accountability</div>
+        <h2 class="section-title">Why HAIRS?</h2>
+        <p class="section-desc">
+          Modern software development increasingly relies on automation, AI-assisted coding, and contributions from distributed teams.
+        </p>
+      </div>
+
+      <!-- Historical Context Cards -->
+      <div class="grid-3" style="margin-bottom: 36px;">
+        <div class="card" style="border-left: 3px solid #f59e0b;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="badge" style="color:#fbbf24; border-color:rgba(245,158,11,0.4); background:rgba(245,158,11,0.1);">2024 Incident</span>
+            <span style="font-size:0.8rem; color:var(--text-dim); font-family:'JetBrains Mono',monospace;">Supply Chain</span>
+          </div>
+          <h3 class="card-title" style="font-size:1.15rem;">xz Utils Backdoor</h3>
+          <p class="card-body">
+            Sophisticated, multi-stage injection concealed in build scripts and test archives, demonstrating how subtle modifications slip past conventional review workflows.
+          </p>
+        </div>
+
+        <div class="card" style="border-left: 3px solid #ef4444;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="badge" style="color:#f87171; border-color:rgba(239,68,68,0.4); background:rgba(239,68,68,0.1);">2018 Incident</span>
+            <span style="font-size:0.8rem; color:var(--text-dim); font-family:'JetBrains Mono',monospace;">Accountability</span>
+          </div>
+          <h3 class="card-title" style="font-size:1.15rem;">event-stream Compromise</h3>
+          <p class="card-body">
+            Unmonitored package transfer introduced targeted malicious code into thousands of downstream projects, exposing the fragility of unverified dependency provenance.
+          </p>
+        </div>
+
+        <div class="card" style="border-left: 3px solid #818cf8;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <span class="badge" style="color:#a5b4fc; border-color:rgba(129,140,248,0.4); background:rgba(129,140,248,0.1);">2020 Incident</span>
+            <span style="font-size:0.8rem; color:var(--text-dim); font-family:'JetBrains Mono',monospace;">Build Pipeline</span>
+          </div>
+          <h3 class="card-title" style="font-size:1.15rem;">SolarWinds Attack</h3>
+          <p class="card-body">
+            Compromise inserted during compilation proved that release integrity cannot rely on implicit trust between source code, dependencies, and build pipelines.
+          </p>
+        </div>
+      </div>
+
+      <!-- Core Thesis & Principles -->
+      <div class="invariant-card" style="max-width: 1000px; margin-bottom: 24px; border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 8px 32px rgba(6, 182, 212, 0.08);">
+        <div class="invariant-tag" style="color: #22d3ee;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Provenance, Accountability, and Release Integrity
+        </div>
+        <p style="color: #cbd5e1; font-size: 1.02rem; line-height: 1.7; margin-bottom: 14px;">
+          These incidents were not caused by AI-generated code. However, they highlight broader challenges involving <strong>code provenance</strong>, <strong>review accountability</strong>, and <strong>release integrity</strong>.
+        </p>
+        <p style="color: #94a3b8; font-size: 0.98rem; line-height: 1.7; margin-bottom: 14px;">
+          <strong>HAIRS (Human–AI Review System)</strong> is designed to address these challenges through traceable, source-bound human reviews, risk classification, and automated release validation.
+        </p>
+        <p style="color: #94a3b8; font-size: 0.98rem; line-height: 1.7;">
+          Its goal is not to guarantee that software is free of vulnerabilities, but to make <strong>review coverage measurable</strong>, <strong>changes traceable</strong>, and <strong>release decisions accountable</strong>.
+        </p>
+      </div>
+
+      <!-- Punchline Quote -->
+      <div style="text-align: center; padding: 18px 24px; background: rgba(16, 185, 129, 0.06); border: 1px dashed rgba(16, 185, 129, 0.4); border-radius: var(--radius); max-width: 760px; margin: 0 auto;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 1.12rem; font-weight: 700; color: #34d399; letter-spacing: 0.2px;">
+          "AI can accelerate development. Human accountability must remain verifiable."
+        </span>
+      </div>
+    </div>
+  </section>
 
   <!-- Core Highlights / Overview -->
   <section id="overview">
