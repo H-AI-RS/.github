@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/hairs-banner.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/hairs-banner.svg">
-    <img alt="HAIRS — Human AI Review System" src="assets/hairs-banner.svg" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/hairs.png">
+    <source media="(prefers-color-scheme: light)" srcset="assets/hairs.png">
+    <img alt="HAIRS — Human AI Review System" src="assets/hairs.png" width="100%">
   </picture>
 </p>
 
