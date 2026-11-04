@@ -1,0 +1,5 @@
+# Set default behavior to automatically normalize line endings to LF
+* text=auto eol=lf
+*.svg text eol=lf
+*.md text eol=lf
+*.html text eol=lf
